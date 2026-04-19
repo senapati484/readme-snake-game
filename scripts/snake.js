@@ -187,7 +187,7 @@ function generateSection(state, lb) {
 > Click a direction to move the snake — your GitHub handle is captured automatically, no sign-in needed!
 
 <p align="center">
-  <img src="game/board.svg" alt="Snake Game Board"/>
+  <img src="https://raw.githubusercontent.com/senapati484/readme-snake-game/main/game/board.svg" alt="Snake Game Board"/>
 </p>
 
 ${dirButtons}
