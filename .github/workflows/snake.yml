@@ -1,0 +1,81 @@
+name: 🐍 Snake Game
+
+on:
+  issues:
+    types: [opened]
+
+# Only run for snake issues
+jobs:
+  snake:
+    if: startsWith(github.event.issue.title, 'snake|')
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # push updated README + SVG
+      issues: write     # close issue + post comment
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────────
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 2. Node setup ────────────────────────────────────────────────────────
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # ── 3. Parse issue title → action + player ───────────────────────────────
+      # Title format:  snake|move|up   /  snake|move|down  /  snake|new
+      - name: Parse snake action
+        id: parse
+        run: |
+          TITLE="${{ github.event.issue.title }}"
+          # Strip the leading "snake|" prefix
+          ACTION=$(echo "$TITLE" | sed 's/^snake|//')
+          echo "action=$ACTION"      >> $GITHUB_OUTPUT
+          echo "player=${{ github.event.issue.user.login }}" >> $GITHUB_OUTPUT
+
+      # ── 4. Run game logic ────────────────────────────────────────────────────
+      - name: Process move
+        env:
+          SNAKE_ACTION: ${{ steps.parse.outputs.action }}
+          SNAKE_PLAYER: ${{ steps.parse.outputs.player }}
+        run: node scripts/snake.js
+
+      # ── 5. Commit changes ────────────────────────────────────────────────────
+      - name: Commit & push
+        run: |
+          git config user.name  "snake-bot[bot]"
+          git config user.email "snake-bot@users.noreply.github.com"
+          git add game/state.json game/leaderboard.json game/board.svg README.md
+          git diff --cached --quiet || git commit -m "🐍 snake move by @${{ steps.parse.outputs.player }}"
+          git push
+
+      # ── 6. Close issue + thank the player ───────────────────────────────────
+      - name: Close issue with comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const player = "${{ steps.parse.outputs.player }}";
+            const action = "${{ steps.parse.outputs.action }}";
+            const isNew  = action === "new";
+            const msg    = isNew
+              ? `🎮 New game started! Head to the [README](https://github.com/${{ github.repository }}) to make your first move, @${player}!`
+              : `✅ Move processed for @${player}! Check the [README](https://github.com/${{ github.repository }}) to see the updated board 🐍`;
+
+            await github.rest.issues.createComment({
+              owner:        context.repo.owner,
+              repo:         context.repo.repo,
+              issue_number: context.issue.number,
+              body:         msg,
+            });
+
+            await github.rest.issues.update({
+              owner:        context.repo.owner,
+              repo:         context.repo.repo,
+              issue_number: context.issue.number,
+              state:        'closed',
+            });

@@ -1,0 +1,29 @@
+{
+  "snake": [
+    [
+      7,
+      8
+    ],
+    [
+      7,
+      7
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      6,
+      6
+    ]
+  ],
+  "food": [
+    11,
+    9
+  ],
+  "direction": "right",
+  "score": 10,
+  "status": "active",
+  "lastPlayer": "octocat",
+  "totalMoves": 3
+}
