@@ -2,18 +2,18 @@
   "snake": [
     [
       6,
-      8
-    ],
-    [
-      7,
-      8
-    ],
-    [
-      7,
-      7
+      9
     ],
     [
       6,
+      8
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      7,
       7
     ]
   ],
@@ -21,9 +21,9 @@
     11,
     9
   ],
-  "direction": "up",
+  "direction": "right",
   "score": 10,
   "status": "active",
   "lastPlayer": "senapati484",
-  "totalMoves": 4
+  "totalMoves": 5
 }
