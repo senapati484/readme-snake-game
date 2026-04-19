@@ -1,6 +1,10 @@
 {
   "snake": [
     [
+      6,
+      8
+    ],
+    [
       7,
       8
     ],
@@ -11,19 +15,15 @@
     [
       6,
       7
-    ],
-    [
-      6,
-      6
     ]
   ],
   "food": [
     11,
     9
   ],
-  "direction": "right",
+  "direction": "up",
   "score": 10,
   "status": "active",
-  "lastPlayer": "octocat",
-  "totalMoves": 3
+  "lastPlayer": "senapati484",
+  "totalMoves": 4
 }

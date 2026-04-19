@@ -79,9 +79,11 @@
   <rect x="129" y="243" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="167" y="243" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="205" y="243" width="36" height="36" rx="5" fill="#0d1117"/>
-  <rect x="243" y="243" width="36" height="36" rx="5" fill="#26a641"/>
+  <rect x="243" y="243" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="281" y="243" width="36" height="36" rx="5" fill="#26a641"/>
-  <rect x="319" y="243" width="36" height="36" rx="5" fill="#0d1117"/>
+  <rect x="319" y="243" width="36" height="36" rx="5" fill="#39d353"/>
+  <circle cx="343.84" cy="252.64" r="3" fill="#0d1117"/>
+  <circle cx="330.16" cy="252.64" r="3" fill="#0d1117"/>
   <rect x="357" y="243" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="395" y="243" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="433" y="243" width="36" height="36" rx="5" fill="#0d1117"/>
@@ -93,9 +95,7 @@
   <rect x="205" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="243" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="281" y="281" width="36" height="36" rx="5" fill="#26a641"/>
-  <rect x="319" y="281" width="36" height="36" rx="5" fill="#39d353"/>
-  <circle cx="345.36" cy="305.84" r="3" fill="#0d1117"/>
-  <circle cx="345.36" cy="292.16" r="3" fill="#0d1117"/>
+  <rect x="319" y="281" width="36" height="36" rx="5" fill="#26a641"/>
   <rect x="357" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="395" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="433" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
@@ -149,5 +149,5 @@
   <rect x="374" y="437" width="2" height="7" rx="1" fill="#26a641"/>
   <rect x="395" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="433" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
-  <text x="242" y="494" text-anchor="middle" fill="#7d8590" font-family="monospace" font-size="13">Score: 10  ·  Moves: 3</text>
+  <text x="242" y="494" text-anchor="middle" fill="#7d8590" font-family="monospace" font-size="13">Score: 10  ·  Moves: 4</text>
 </svg>
