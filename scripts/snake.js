@@ -221,51 +221,97 @@ function patchReadme(section) {
   fs.writeFileSync(README_PATH, md);
 }
 
+const VOTES_PATH = path.join(ROOT, 'game/votes.json');
+
 // ── Main ───────────────────────────────────────────────────────────────────────
 (function main() {
+  const mode      = (process.env.SNAKE_MODE || 'vote').trim().toLowerCase();
   const rawAction = (process.env.SNAKE_ACTION || '').trim().toLowerCase();
   const player    = (process.env.SNAKE_PLAYER || 'anonymous').trim();
-
-  let state = fs.existsSync(STATE_PATH)
-    ? JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'))
-    : initState();
-
-  let lb = fs.existsSync(LB_PATH)
-    ? JSON.parse(fs.readFileSync(LB_PATH, 'utf8'))
-    : [];
-
-  if (rawAction === 'new' || state.status === 'dead') {
-    console.log(`Starting new game for @${player}`);
-    state = initState();
-  } else if (rawAction.startsWith('move|')) {
-    const dir = rawAction.split('|')[1];
-    if (!DIR_DELTA[dir]) { console.log(`Unknown direction: ${dir}`); process.exit(0); }
-
-    const result = applyMove(state, dir, player);
-    state = result.state;
-
-    if (result.ate) {
-      console.log(`@${player} ate food! +10 pts`);
-      lb = addScore(lb, player, 10);
-    }
-    if (state.status === 'dead') {
-      console.log(`@${player}'s move ended the game. Score: ${state.score}`);
-    }
-  }
 
   // Ensure output dir exists
   fs.mkdirSync(path.dirname(STATE_PATH), { recursive: true });
 
-  fs.writeFileSync(STATE_PATH,  JSON.stringify(state, null, 2));
-  fs.writeFileSync(LB_PATH,     JSON.stringify(lb,    null, 2));
-  fs.writeFileSync(SVG_PATH,    generateSVG(state));
+  let votes = fs.existsSync(VOTES_PATH) 
+    ? JSON.parse(fs.readFileSync(VOTES_PATH, 'utf8')) 
+    : [];
 
-  if (fs.existsSync(README_PATH)) {
-    patchReadme(generateSection(state, lb));
-    console.log('README updated.');
-  } else {
-    console.log('README.md not found — skipping patch. Run from repo root.');
+  if (mode === 'vote') {
+    // Record vote
+    console.log(`Recording vote '${rawAction}' for @${player}`);
+    // Prevent duplicate votes from same user in same round
+    votes = votes.filter(v => v.player !== player);
+    votes.push({ player, action: rawAction });
+    fs.writeFileSync(VOTES_PATH, JSON.stringify(votes, null, 2));
+    console.log('Vote recorded.');
+    return;
   }
 
-  console.log(`Done. Status=${state.status} Score=${state.score}`);
+  if (mode === 'tally') {
+    if (votes.length === 0) {
+      console.log('No votes to tally. Exiting.');
+      return;
+    }
+
+    let state = fs.existsSync(STATE_PATH)
+      ? JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'))
+      : initState();
+
+    let lb = fs.existsSync(LB_PATH)
+      ? JSON.parse(fs.readFileSync(LB_PATH, 'utf8'))
+      : [];
+
+    console.log(`Tallying ${votes.length} votes...`);
+    
+    // Count votes
+    const counts = {};
+    votes.forEach(v => {
+      counts[v.action] = (counts[v.action] || 0) + 1;
+    });
+
+    // Find majority
+    let winningAction = null;
+    let max = -1;
+    for (const [act, count] of Object.entries(counts)) {
+      if (count > max) { max = count; winningAction = act; }
+    }
+    console.log(`Winning action: ${winningAction} (${max} votes)`);
+
+    // Get winning players
+    const winningPlayers = votes.filter(v => v.action === winningAction).map(v => v.player);
+
+    if (winningAction === 'new' || state.status === 'dead') {
+      console.log(`Starting new game!`);
+      state = initState();
+    } else if (winningAction.startsWith('move|')) {
+      const dir = winningAction.split('|')[1];
+      if (!DIR_DELTA[dir]) { console.log(`Unknown direction: ${dir}`); return; }
+
+      // We use the first winning player as the recorded "lastPlayer" just for the SVG status
+      const result = applyMove(state, dir, winningPlayers[0]);
+      state = result.state;
+
+      if (result.ate) {
+        console.log(`Food eaten! +10 pts to ${winningPlayers.join(', ')}`);
+        winningPlayers.forEach(p => {
+          lb = addScore(lb, p, 10);
+        });
+      }
+      if (state.status === 'dead') {
+        console.log(`Game over. Score: ${state.score}`);
+      }
+    }
+
+    fs.writeFileSync(STATE_PATH,  JSON.stringify(state, null, 2));
+    fs.writeFileSync(LB_PATH,     JSON.stringify(lb,    null, 2));
+    fs.writeFileSync(SVG_PATH,    generateSVG(state));
+    fs.writeFileSync(VOTES_PATH,  JSON.stringify([],    null, 2)); // Clear votes
+
+    if (fs.existsSync(README_PATH)) {
+      patchReadme(generateSection(state, lb));
+      console.log('README updated.');
+    }
+
+    console.log(`Done. Status=${state.status} Score=${state.score}`);
+  }
 })();
