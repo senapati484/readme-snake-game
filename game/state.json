@@ -1,6 +1,10 @@
 {
   "snake": [
     [
+      10,
+      9
+    ],
+    [
       9,
       9
     ],
@@ -10,10 +14,6 @@
     ],
     [
       7,
-      9
-    ],
-    [
-      6,
       9
     ]
   ],
@@ -25,5 +25,5 @@
   "score": 10,
   "status": "active",
   "lastPlayer": "senapati484",
-  "totalMoves": 8
+  "totalMoves": 9
 }
