@@ -114,7 +114,9 @@
   <rect x="91" y="357" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="129" y="357" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="167" y="357" width="36" height="36" rx="5" fill="#0d1117"/>
-  <rect x="205" y="357" width="36" height="36" rx="5" fill="#0d1117"/>
+  <rect x="205" y="357" width="36" height="36" rx="5" fill="#161b22"/>
+  <circle cx="223" cy="375" r="10.64" fill="#ff4444"/>
+  <rect x="222" y="361" width="2" height="7" rx="1" fill="#26a641"/>
   <rect x="243" y="357" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="281" y="357" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="319" y="357" width="36" height="36" rx="5" fill="#0d1117"/>
@@ -130,9 +132,7 @@
   <rect x="243" y="395" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="281" y="395" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="319" y="395" width="36" height="36" rx="5" fill="#0d1117"/>
-  <rect x="357" y="395" width="36" height="36" rx="5" fill="#39d353"/>
-  <circle cx="368.16" cy="421.36" r="3" fill="#0d1117"/>
-  <circle cx="381.84" cy="421.36" r="3" fill="#0d1117"/>
+  <rect x="357" y="395" width="36" height="36" rx="5" fill="#26a641"/>
   <rect x="395" y="395" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="433" y="395" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="15" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
@@ -144,10 +144,10 @@
   <rect x="243" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="281" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="319" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
-  <rect x="357" y="433" width="36" height="36" rx="5" fill="#161b22"/>
-  <circle cx="375" cy="451" r="10.64" fill="#ff4444"/>
-  <rect x="374" y="437" width="2" height="7" rx="1" fill="#26a641"/>
+  <rect x="357" y="433" width="36" height="36" rx="5" fill="#39d353"/>
+  <circle cx="368.16" cy="459.36" r="3" fill="#0d1117"/>
+  <circle cx="381.84" cy="459.36" r="3" fill="#0d1117"/>
   <rect x="395" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="433" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
-  <text x="242" y="494" text-anchor="middle" fill="#7d8590" font-family="monospace" font-size="13">Score: 10  ·  Moves: 9</text>
+  <text x="242" y="494" text-anchor="middle" fill="#7d8590" font-family="monospace" font-size="13">Score: 20  ·  Moves: 10</text>
 </svg>
