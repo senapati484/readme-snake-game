@@ -149,7 +149,7 @@ function addScore(lb, handle, pts) {
 }
 
 // ── README section generator ──────────────────────────────────────────────────
-const REPO = 'senapati484/senapati484';
+const REPO = 'senapati484/readme-snake-game';
 const BASE = `https://github.com/${REPO}/issues/new`;
 
 function issueLink(title, label) {

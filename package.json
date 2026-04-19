@@ -1,0 +1,25 @@
+{
+  "name": "readme-snake-game",
+  "version": "1.0.0",
+  "description": "Personal README.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/senapati484/readme-snake-game.git"
+  },
+  "author": "Sayan Senapati",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/senapati484/readme-snake-game/issues"
+  },
+  "homepage": "https://github.com/senapati484/readme-snake-game#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "markdown-it": "^11.0.0",
+    "markdown-it-emoji": "^1.4.0"
+  }
+}
