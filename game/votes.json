@@ -1,1 +1,6 @@
-[]
+[
+  {
+    "player": "SenapatiCoder",
+    "action": "move|left"
+  }
+]
