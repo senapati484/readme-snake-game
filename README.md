@@ -30,8 +30,8 @@
 
 | Rank | Player | Score |
 |:----:|--------|------:|
-| 🥇 | [@octocat](https://github.com/octocat) | **10** |
-| 🥈 | [@senapati484](https://github.com/senapati484) | **10** |
+| 🥇 | [@senapati484](https://github.com/senapati484) | **20** |
+| 🥈 | [@octocat](https://github.com/octocat) | **10** |
 
 <sub>Eating food = +10 pts per player. Scores are cumulative across all games.</sub>
 <!-- SNAKE_END -->
