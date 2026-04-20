@@ -2,6 +2,10 @@
   "snake": [
     [
       11,
+      6
+    ],
+    [
+      11,
       7
     ],
     [
@@ -15,10 +19,6 @@
     [
       10,
       9
-    ],
-    [
-      9,
-      9
     ]
   ],
   "food": [
@@ -28,6 +28,6 @@
   "direction": "left",
   "score": 20,
   "status": "active",
-  "lastPlayer": "SenapatiCoder",
-  "totalMoves": 12
+  "lastPlayer": "senapati484",
+  "totalMoves": 13
 }
