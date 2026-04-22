@@ -92,7 +92,9 @@
   <rect x="91" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="129" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="167" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
-  <rect x="205" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
+  <rect x="205" y="281" width="36" height="36" rx="5" fill="#39d353"/>
+  <circle cx="229.84" cy="290.64" r="3" fill="#0d1117"/>
+  <circle cx="216.16" cy="290.64" r="3" fill="#0d1117"/>
   <rect x="243" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="281" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="319" y="281" width="36" height="36" rx="5" fill="#0d1117"/>
@@ -104,9 +106,7 @@
   <rect x="91" y="319" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="129" y="319" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="167" y="319" width="36" height="36" rx="5" fill="#0d1117"/>
-  <rect x="205" y="319" width="36" height="36" rx="5" fill="#39d353"/>
-  <circle cx="229.84" cy="328.64" r="3" fill="#0d1117"/>
-  <circle cx="216.16" cy="328.64" r="3" fill="#0d1117"/>
+  <rect x="205" y="319" width="36" height="36" rx="5" fill="#26a641"/>
   <rect x="243" y="319" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="281" y="319" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="319" y="319" width="36" height="36" rx="5" fill="#0d1117"/>
@@ -144,10 +144,10 @@
   <rect x="167" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="205" y="433" width="36" height="36" rx="5" fill="#26a641"/>
   <rect x="243" y="433" width="36" height="36" rx="5" fill="#26a641"/>
-  <rect x="281" y="433" width="36" height="36" rx="5" fill="#26a641"/>
+  <rect x="281" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="319" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="357" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="395" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
   <rect x="433" y="433" width="36" height="36" rx="5" fill="#0d1117"/>
-  <text x="242" y="494" text-anchor="middle" fill="#7d8590" font-family="monospace" font-size="13">Score: 30  ·  Moves: 17</text>
+  <text x="242" y="494" text-anchor="middle" fill="#7d8590" font-family="monospace" font-size="13">Score: 30  ·  Moves: 18</text>
 </svg>
